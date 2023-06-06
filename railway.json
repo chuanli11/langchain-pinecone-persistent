@@ -3,7 +3,7 @@
   "build": {
     "builder": "NIXPACKS",
     "watchPatterns": [
-      "/pinecone-qa/**"
+      "/**"
     ]
   },
   "deploy": {
