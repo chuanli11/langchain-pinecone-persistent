@@ -1,15 +1,17 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
-  "deploy": {
-    "startCommand": "streamlit run streamlit_app.py",
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 10,
-    "numReplicas": 1
-  },
   "build": {
     "builder": "NIXPACKS",
     "watchPatterns": [
       "/src/**"
     ]
+  },
+  "deploy": {
+    "startCommand": "streamlit run streamlit_app.py",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 100,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10,
+    "numReplicas": 1
   }
 }
