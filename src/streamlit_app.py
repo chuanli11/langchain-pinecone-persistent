@@ -20,7 +20,8 @@ query = st.text_input("Enter your query")
 
 if st.button("Submit"):
     # Validate inputs
-    if not openai_api_key or not pinecone_api_key or not pinecone_env or not pinecone_index or not source_doc or not query:
+    # if not openai_api_key or not pinecone_api_key or not pinecone_env or not pinecone_index or not source_doc or not query:
+    if not openai_api_key or not pinecone_api_key or not pinecone_env or not pinecone_index or not query:
         st.warning(f"Please upload the document and provide the missing fields.")
     else:
         try:
