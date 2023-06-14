@@ -15,7 +15,7 @@ with st.sidebar:
     pinecone_api_key = st.text_input("Pinecone API key", type="password")
     pinecone_env = st.text_input("Pinecone environment")
     pinecone_index = st.text_input("Pinecone index name")
-source_doc = st.file_uploader("Upload source document", type="pdf", label_visibility="collapsed")
+# source_doc = st.file_uploader("Upload source document", type="pdf", label_visibility="collapsed")
 query = st.text_input("Enter your query")
 
 if st.button("Submit"):
@@ -25,11 +25,11 @@ if st.button("Submit"):
     else:
         try:
             # Save uploaded file temporarily to disk, load and split the file into pages, delete temp file
-            with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
-                tmp_file.write(source_doc.read())
-            loader = PyPDFLoader(tmp_file.name)
-            pages = loader.load_and_split()
-            os.remove(tmp_file.name)
+            # with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            #     tmp_file.write(source_doc.read())
+            # loader = PyPDFLoader(tmp_file.name)
+            # pages = loader.load_and_split()
+            # os.remove(tmp_file.name)
             
             # Generate embeddings for the pages, insert into Pinecone vector database, and expose the index in a retriever interface
             pinecone.init(api_key=pinecone_api_key, environment=pinecone_env)
